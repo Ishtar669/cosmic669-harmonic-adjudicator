@@ -1,0 +1,4 @@
+interface TemporalOperation {
+  execute: () => void;
+  expiration: number;
+}
