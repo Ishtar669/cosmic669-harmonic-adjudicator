@@ -1,0 +1,8 @@
+updateCoherenceScore(nodeId: string, score: number) {
+  this.coherenceMap.set(nodeId, score);
+}
+getTopAlignedNodes() {
+  return [...this.coherenceMap.entries()]
+    .filter(([_, score]) => score > 0.8)
+    .sort((a, b) => b[1] - a[1]);
+}
