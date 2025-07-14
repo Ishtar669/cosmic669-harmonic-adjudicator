@@ -1,0 +1,3 @@
+def harmonize_event(celestial_body, moon_phase):
+    if celestial_body == "Jupiter" and moon_phase == "New Moon":
+        return deploy_resonance_grid("Eight-Pointed Star", freq=669)
