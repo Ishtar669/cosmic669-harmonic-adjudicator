@@ -1,0 +1,42 @@
+class AdjudicationRecoveryEngine {
+  private buffer: TemporalBuffer;
+
+  constructor(location: string, coherenceTime: number) {
+    this.buffer = new TemporalBuffer(location, coherenceTime);
+  }
+
+  async processPulse(pulseVector: PulseVector) {
+    if (!this.buffer.checkTemporalWindow(pulseVector.timestamp)) {
+      console.warn("Pulse outside coherence window—triggering fallback protocol.");
+      return this.fallbackRecovery(pulseVector);
+    }
+
+    if (pulseVector.entanglementFidelity < RECOVERY_PARAMS.entanglementThreshold) {
+      console.warn("Insufficient entanglement—attempting realignment.");
+      for (let i = 0; i < RECOVERY_PARAMS.maxAttempts; i++) {
+        await this.delay(RECOVERY_PARAMS.attemptInterval);
+        const success = this.realignEntanglement(pulseVector);
+        if (success) break;
+      }
+    }
+
+    this.buffer.addOperation(() => applyCompensationPulse(pulseVector));
+  }
+
+  private fallbackRecovery(pulseVector: PulseVector) {
+    if (RECOVERY_PARAMS.fallbackProtocol === "time-domain-refocusing") {
+      return applyTimeDomainRefocusing(pulseVector);
+    }
+    // other fallback methods could go here
+  }
+
+  private delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  private realignEntanglement(pulseVector: PulseVector): boolean {
+    // Invoke surface_code_17 stabilizers + refocusing logic
+    // Placeholder: simulated check
+    return Math.random() > 0.15; // simulate recovery success
+  }
+}
