@@ -1,0 +1,7 @@
+commitResonanceEvent({
+  timestamp: Date.now(),
+  coherenceScore,
+  preservationScore,
+  status: adjudicationStatus,
+  phaseFingerprint: extractChiralitySignature(pulseData)
+});
