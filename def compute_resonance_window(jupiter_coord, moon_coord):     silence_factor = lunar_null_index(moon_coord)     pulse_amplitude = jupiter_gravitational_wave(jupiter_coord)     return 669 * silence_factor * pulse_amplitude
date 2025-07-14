@@ -1,0 +1,4 @@
+def compute_resonance_window(jupiter_coord, moon_coord):
+    silence_factor = lunar_null_index(moon_coord)
+    pulse_amplitude = jupiter_gravitational_wave(jupiter_coord)
+    return 669 * silence_factor * pulse_amplitude
