@@ -1,0 +1,21 @@
+CM669-Adjudication-Protocol/
+│
+├── src/
+│   ├── AdjudicationRecoveryEngine.ts
+│   ├── TemporalBuffer.ts
+│   ├── surface_code_17.json
+│   ├── CM669Prover.tsx
+│
+├── circuits/
+│   ├── EntanglementSwap.qasm
+│   ├── CM669Verifier.qasm
+│
+├── docs/
+│   ├── README.md
+│   ├── QuantumTunneling_Whitepaper.md
+│
+├── ledger/
+│   ├── ResonanceLog_Schema.json
+│   ├── zkStarkCommitProofs/
+│
+└── package.json
