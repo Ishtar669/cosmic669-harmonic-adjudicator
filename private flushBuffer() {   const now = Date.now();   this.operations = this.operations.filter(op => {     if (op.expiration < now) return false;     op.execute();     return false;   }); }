@@ -1,0 +1,8 @@
+private flushBuffer() {
+  const now = Date.now();
+  this.operations = this.operations.filter(op => {
+    if (op.expiration < now) return false;
+    op.execute();
+    return false;
+  });
+}
