@@ -1,0 +1,5 @@
+def initiate_star_lock(gematria_code, lunar_phase, jupiter_alignment):
+    if lunar_phase == "New Moon" and jupiter_alignment:
+        return "Eight-Pointed Gate: OPEN"
+    else:
+        return "Insufficient Harmonic Conditions"
