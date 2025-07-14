@@ -1,0 +1,15 @@
+def initiate_star_lock(gematria_code, lunar_phase, jupiter_alignment):
+    """Determine astrological gate status based on cosmic conditions
+    
+    Parameters:
+    gematria_code (int): Numeric vibration signature (unused in current version)
+    lunar_phase (str): Current moon phase (requires exact string match)
+    jupiter_alignment (bool): Gas giant's harmonic position
+    
+    Returns:
+    str: Gate status message"""
+    
+    if lunar_phase == "New Moon" and jupiter_alignment:
+        return "Eight-Pointed Gate: OPEN"
+    else:
+        return "Insufficient Harmonic Conditions"
